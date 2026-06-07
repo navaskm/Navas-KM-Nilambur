@@ -3,14 +3,14 @@ import { motion } from "motion/react";
 const plans = [
   {
     title: "Backend Development",
-    status: "Learning",
+    status: "Learning...",
     description: "Currently learning Node.js and Express.js to expand my skills into backend development and build full-stack web applications.",
     icon: "⚙️",
     color: "from-green-400 to-green-600"
   },
   {
     title: "Database Technologies",
-    status: "Upcoming",
+    status: "Learning...",
     description: "Planning to learn database technologies such as SQL and NoSQL to manage data effectively in full-stack applications.",
     icon: "🗄️",
     color: "from-purple-400 to-purple-600"

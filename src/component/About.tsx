@@ -15,7 +15,7 @@ const infoList = [
     description: '2+ years of continuous self-learning in frontend development.'
   },
   {
-    icon: '/about/experience-icon.png', alt: 'Frontend development experience of Navas KM with real projects', title: 'Experience', description: '3 months of hands-on frontend training with real projects.'
+    icon: '/about/experience-icon.png', alt: 'Frontend development experience of Navas KM with real projects', title: 'Experience', description: '3 months of hands-on frontend training with real projects in BlueWeb2.'
   }
 ];
 

@@ -16,7 +16,7 @@ const workData = [
     title: 'Portfolio Project',
     description: 'Web Design Portfolio for Graphic Designer',
     bgImage: '/work/portfolio.avif',
-    link: 'https://anshin-ten.vercel.app'
+    link: 'https://midhun-krishna-k.vercel.app/'
   },
   {
     title: 'Smart Expense Tracker',
@@ -36,6 +36,21 @@ const workData = [
     bgImage: '/work/product-mange.jpg',
     link: 'https://product-management-roan-beta.vercel.app/'
   },
+]
+
+const blueWebProjects = [
+  {
+    title: "Yaspn Portfolio Website",
+    des: 'Professional portfolio website developed for a Dubai-based business owner. Focused on responsive design, modern UI, and user experience.',
+    link: 'https://yaspn.com',
+    bgImage: '/work/yaspn.jpg',
+  },
+  {
+    title: "E-commerce Application", 
+    des: 'Modern e-commerce platform featuring product listings, shopping cart, responsive layouts, and user-friendly shopping experience. The project is currently under development and will be launched soon.',
+    link: 'https://ecommerce-website-khaki-mu.vercel.app/',
+    bgImage: '/work/blue-web-ecommerce.jpeg',
+  }
 ]
 
 const Work = () => {
@@ -75,66 +90,133 @@ const Work = () => {
           Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end development.
         </motion.p>
 
+        {/* Internship Projects */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="grid lg:grid-cols-2 gap-8 lg:my-20"
+        >
+
+          {/* Left Side */}
+          <div className="bg-[rgba(10,16,48,1)] border border-white/10 rounded-2xl p-3.5 lg:p-8">
+            <h3 className="text-3xl font-semibold mb-4">
+              Internship Experience
+            </h3>
+
+            <p className="text-gray-300 leading-6">
+              During my internship at Blue Web Two, I worked on real-world client
+              projects and collaborated with experienced developers to improve my
+              frontend development skills. This experience helped me gain practical
+              knowledge of modern web technologies, responsive design, project
+              structure, and professional development workflows.
+            </p>
+
+            <p className="text-gray-300 leading-6 mt-4">
+              I contributed to portfolio and e-commerce projects using modern
+              frontend technologies while following industry best practices and
+              client requirements.
+            </p>
+
+            <div className="mt-6">
+              <span className="inline-block px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-xs lg:text-sm">
+                Blue Web Two • Frontend Developer Intern
+              </span>
+            </div>
+          </div>
+
+          {/* Right Side */}
+          <div className="grid gap-5">
+
+            {/* company */}
+            {blueWebProjects.map( project => (
+              <div
+               key={project.title}
+                onClick={() => handleProject(project.link)}
+                className="bg-[rgba(10,16,48,1)] border border-white/10 rounded-2xl p-6 cursor-pointer hover:border-blue-400 duration-300 relative overflow-hidden"
+              >
+
+                <img
+                  src={project.bgImage}
+                  alt={`${project.title} project by Navas KM`}
+                  className='absolute w-full h-full inset-0 z-0'
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-[rgba(10,16,48,1)]/60 z-0"></div>
+
+                <div className='relative z-10'>
+                  <h4 className="text-xl font-semibold ">{project.title}</h4>
+                  <p className="text-gray-300 mt-2 leading-5 text-sm">{project.des}</p>
+                  <span className="inline-block mt-8 text-blue-400">
+                    View Project →
+                  </span>
+                </div>
+              </div>
+            ))}
+
+          </div>
+
+        </motion.div>
+
+        <h5 className='text-center mt-5 lg:mt-0'>My personal projects</h5>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className={`grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] my-10 gap-5 `}>
-          {
-            workData.map((project, index) => (
-              <motion.article
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                key={index}
-                style={{ backgroundImage: `url(${project.bgImage})` }}
-                className='aspect-square bg-no-repeat bg-cover bg-center rounded-xl relative cursor-pointer group overflow-hidden'
-                onClick={() => handleProject(project.link)}
-              >
+          className={`grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] mt-3 mb-10 gap-5`}>
 
-                {/* Hidden SEO Image */}
-                <Image
-                  height={30}
-                  width={30}
-                  src={project.bgImage}
-                  alt={`${project.title} project by Navas KM`}
-                  className="hidden"
-                />
+          {workData.map((project, index) => (
+            <motion.article
+              key={index}
+              style={{ backgroundImage: `url(${project.bgImage})` }}
+              className='aspect-square bg-no-repeat bg-cover bg-center rounded-xl relative cursor-pointer group overflow-hidden'
+              onClick={() => handleProject(project.link)}
+            >
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-[rgba(10,16,48,1)]/60 group-hover:bg-[rgba(10,16,48,1)]/70 transition duration-300"></div>
+              {/* Hidden SEO Image */}
+              <Image
+                height={30}
+                width={30}
+                src={project.bgImage}
+                alt={`${project.title} project by Navas KM`}
+                className="hidden"
+              />
 
-                {/* Content */}
-                <div className='absolute inset-0 z-10 p-4 flex flex-col justify-end'>
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-[rgba(10,16,48,1)]/60 group-hover:bg-[rgba(10,16,48,1)]/40 transition duration-300"></div>
 
-                  {/* text */}
-                  <div className="max-w-full">
-                    <h2 className='font-semibold text-white text-sm sm:text-base truncate'>
-                      {project.title}
-                    </h2>
+              {/* Content */}
+              <div className='absolute inset-0 z-10 p-4 flex flex-col justify-end'>
 
-                    <p className='text-xs sm:text-sm text-gray-300 group-hover:text-white line-clamp-2'>
-                      {project.description}
-                    </p>
-                  </div>
+                {/* text */}
+                <div className="max-w-full">
+                  <h2 className='font-semibold text-white text-sm sm:text-base truncate'>
+                    {project.title}
+                  </h2>
 
-                  {/* button */}
-                  <div className='mt-3 flex justify-end'>
-                    <div className='rounded-full w-9 aspect-square flex items-center justify-center 
-                      transition-all duration-300 bg-white/40 group-hover:bg-white'>
-                      <Image
-                        height={30}
-                        width={30}
-                        src="/work/send-icon.png"
-                        alt={`${project.title} project by Navas KM`}
-                        className='w-4'
-                      />
-                    </div>
-                  </div>
+                  <p className='text-xs sm:text-sm text-gray-300 group-hover:text-white line-clamp-2'>
+                    {project.description}
+                  </p>
                 </div>
 
-              </motion.article>
-            ))
-          }
+                {/* button */}
+                <div className='mt-3 flex justify-end'>
+                  <div className='rounded-full w-9 aspect-square flex items-center justify-center 
+                    transition-all duration-300 bg-white/40 group-hover:bg-white'>
+                    <Image
+                      height={30}
+                      width={30}
+                      src="/work/send-icon.png"
+                      alt={`${project.title} project by Navas KM`}
+                      className='w-4'
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </motion.article>
+          ))}
         </motion.div>
 
         <motion.a
